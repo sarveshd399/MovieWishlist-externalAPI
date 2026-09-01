@@ -3,3 +3,40 @@ GET https://examples.http-client.intellij.net/get
     ?generated-in=IntelliJ IDEA
 
 ###
+
+### 1. Register
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "sarvesh",
+  "email": "test@test.com",
+  "password": "password123"
+}
+
+### 2. Login (copy the token from response)
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "sarvesh",
+  "password": "password123"
+}
+
+### 3. Search movies
+GET http://localhost:8080/api/movies/search?query=batman
+
+### 4. Add to wishlist (paste token below)
+POST http://localhost:8080/api/wishlist
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYXJ2ZXNoIiwiaWF0IjoxNzg4MjA2MDM2LCJleHAiOjE3ODgyOTI0MzZ9.V3wADUCVX0AJP0ntbnbvwpjGKMjGSKRce-2CWmEJkPE
+Content-Type: application/json
+
+{
+  "imdbId": "tt0372784",
+  "title": "Batman Begins",
+  "posterUrl": "https://..."
+}
+
+### 5. Get wishlist
+GET http://localhost:8080/api/wishlist
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYXJ2ZXNoIiwiaWF0IjoxNzg4MjA2MDM2LCJleHAiOjE3ODgyOTI0MzZ9.V3wADUCVX0AJP0ntbnbvwpjGKMjGSKRce-2CWmEJkPE

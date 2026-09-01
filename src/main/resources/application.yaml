@@ -1,14 +1,14 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/moviewatchlist
-    username: postgres
-    password: root
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+    username: YOUR_DB_USERNAME
+    password: YOUR_DB_PASSWORD
 
 omdb:
   api:
-    key: YOUR_KEY_HERE
+    key: YOUR_OMDB_KEY
     base-url: https://www.omdbapi.com
+
+jwt:
+  secret: YOUR_JWT_SECRET
+  expiration: 86400000
